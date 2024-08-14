@@ -1,9 +1,11 @@
 mod handler;
+mod common;
 
 extern crate dotenv;
 
 use crate::handler::get_all_handlers;
 
+use common::db::connect_to_database;
 use dotenv::dotenv;
 use log::info;
 use std::{
@@ -19,7 +21,13 @@ use std::{
 async fn main() {
     // Read environment variables
     dotenv().ok();
+
+    // Initialize logger
     colog::init();
+
+    // Connect to database
+    info!("Connecting to database...");
+    let db = connect_to_database();
 
     // Setup router
     let router = get_all_handlers();
