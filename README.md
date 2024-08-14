@@ -5,7 +5,7 @@
 
 ## Overview
 
-This project provides simple and scalable template for building RESTful APIs using Rust. It is designed to streamline the development of APIs by offering a well-structured starting point with best practices for code organization, error handling, and testing.
+This project provides simple and scalable template for building RESTful APIs using Rust. It is designed to streamline the development of APIs by offering a well-structured starting point for your projects.
 
 ### Libraries
 
@@ -14,6 +14,7 @@ This template is based on multiple libraries:
 - warp: composable web framework
 - log: logging information (and currently with colog as implementation)
 - dotenv: read environment variables from .env
+- diesel (postgres): ORM for Postgres databases (can be easily adapted to work with sqlite and MySQL)
 
 ## Getting Started
 
@@ -37,13 +38,7 @@ This template is based on multiple libraries:
     cargo build
     ```
 
-3. **Run the tests**:
-
-    ```bash
-    cargo test
-    ```
-
-4. **Run the application**:
+3. **Run the application**:
 
     ```bash
     cargo run
@@ -54,10 +49,12 @@ This template is based on multiple libraries:
 Configuration is handled via environment variables. You can set up a `.env` file at the root of the project to manage your configurations:
 
 ```env
-# .env file example
+# Server configuration
+SERVER_HOST=0.0.0.0
+SERVER_PORT=3000
 
-DATABASE_URL=postgres://user:password@localhost:5432/mydatabase
-API_PORT=8080
+# Database
+DATABASE_URL=
 ```
 
 ## Contributing
