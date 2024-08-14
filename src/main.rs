@@ -1,5 +1,5 @@
-mod handler;
 mod common;
+mod handler;
 
 extern crate dotenv;
 
@@ -27,7 +27,7 @@ async fn main() {
 
     // Connect to database
     info!("Connecting to database...");
-    let db = connect_to_database();
+    let _db = connect_to_database();
 
     // Setup router
     let router = get_all_handlers();
